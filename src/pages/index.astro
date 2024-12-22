@@ -1,0 +1,69 @@
+---
+import Badge from "../components/Badge.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import Layout from "../layouts/Layout.astro";
+import userimage from "../assets/img/user.png";
+import LinkedinIcon from "../components/icons/LinkedinIcon.astro";
+import GithubIcon from "../components/icons/GithubIcon.astro";
+import Social from "../components/Social.astro";
+import Experience from "../components/Experience.astro";
+import BriefCase from "../components/icons/BriefCase.astro";
+import ProjectsIcon from "../components/icons/ProjectsIcon.astro";
+import Projects from "../components/Projects.astro";
+import PhoneIcon from "../components/icons/PhoneIcon.astro";
+---
+
+<Layout>
+  <main class="px-4">
+    <SectionContainer id="top" class="py-44 pb-24">
+      <img
+        class="rounded-full w-12 h-12 mb-4"
+        src={userimage.src}
+        alt="logo personal"
+      />
+      <h1
+        class="text-white text-5xl font-bold flex flex-col lg:flex-row gap-x-4 gap-y-2 pb-4"
+      >
+        Hola, soy David
+        <div class="flex lg:justify-center items-center">
+          <Badge> Disponible para trabajar </Badge>
+        </div>
+      </h1>
+      <h2 class="text-2xl opacity-80 text-wrap">
+        Me fascina el proceso de transformar ideas en soluciones digitales
+        funcionales. Disfruto explorando nuevas tecnologías y lenguajes de
+        programación.
+      </h2>
+      <nav class="flex gap-x-4 mt-8">
+        <Social href="https://www.linkedin.com/in/david-o-888b0b17a/">
+          <LinkedinIcon class="size-6" />
+          Linkedin
+        </Social>
+        <Social href="https://github.com/David-kruger">
+          <GithubIcon class="size-6" />
+          Github
+        </Social>
+        <Social href="https://wa.me/593998451174">
+          <PhoneIcon class="size-6" />
+          Whatsapp
+        </Social>
+      </nav>
+    </SectionContainer>
+
+    <SectionContainer id="experience">
+      <h2 class="text-2xl font-semibold mb-6 flex gap-x-3 items-center">
+        <BriefCase class="size-7" />
+        Experiencia Laboral
+      </h2>
+      <Experience />
+    </SectionContainer>
+
+    <SectionContainer id="projects">
+      <h2 class="text-2xl font-semibold mb-6 flex gap-x-3 items-center">
+        <ProjectsIcon class="size-7" />
+        Proyectos Realizados
+      </h2>
+      <Projects />
+    </SectionContainer>
+  </main>
+</Layout>

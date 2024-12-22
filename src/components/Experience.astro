@@ -1,0 +1,33 @@
+---
+import ExperienceItem from "./ExperienceItem.astro";
+
+const EXPERIENCE = [
+{
+    date: "2022 - Mayo 2024",
+    title: "Desarrollo de Proyectos",
+    company: "Publitronics",
+    description:
+      "Construí, implementé y gestioné soluciones innovadoras que integran tecnologías avanzadas. Mi objetivo principal era diseñar y desarrollar proyectos que mejoraran la experiencia del usuario y optimizaran los procesos operativos a través de la tecnología",
+  },
+  {
+    date: "2021 - 2022",
+    title: "Desarrollador de Proyectos",
+    company: "Cnestronic",
+    description:
+      "Construí, implementé y gestioné soluciones ara diversas aplicaciones industriales. Mi objetivo principal era construir equipos que optimizaran la eficiencia operativa y cumpliera con los requisitos específicos del cliente.",
+  },
+];
+---
+
+<ol class="relative border-s border-gray-200 dark:border-gray-700">
+    
+    {
+        EXPERIENCE.map(experience => (
+        <li class="mb-10 ms-4">
+            <ExperienceItem {...experience}/>
+        </li>
+        ))
+    }
+    
+   
+</ol>

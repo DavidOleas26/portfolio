@@ -1,0 +1,84 @@
+---
+import HtmlIcon from "./icons/HtmlIcon.astro";
+import CssIcons from "./icons/CssIcons.astro";
+import TailwindIcon from "./icons/TailwindIcon.astro"
+import JsIcon from "./icons/JsIcon.astro"
+
+const TAGS = {
+  HTML: {
+    name: "Html",
+    class: "bg-[#646f58] text-white",
+    icon: HtmlIcon,
+  },
+  CSS: {
+    name: "CSS",
+    class: "bg-[#89daff] text-black",
+    icon: CssIcons,
+  },
+  TAILWIND: {
+    name: "Tailwind CSS",
+    class: "bg-[#ecdcc9] text-black",
+    icon: TailwindIcon,
+  },
+  JS: {
+    name: "Java Script",
+    class: "bg-[#94c5cc] text-black",
+    icon: JsIcon,
+  },
+};
+
+const PROJECTS = [
+  {
+    title: "E-commerce",
+    description: "E-commerce de zapatos deportivos, creado usando html y css",
+    link: "#",
+    github: "https://github.com/David-kruger/proyecto-html-Css",
+    image: "/projects/pro1.webp",
+    tags: [TAGS.HTML, TAGS.CSS],
+  },
+  {
+    title: "Apliacación para busqueda de departamentos",
+    description: "Aplicación tipo AirBnb, La aplicación permite registrar usuarios, este usuario es responsable de administrar todos los datos de los departamentos, incluidas las inserciones, actualizaciones y eliminaciones. La aplicación permitirá a los usuarios navegar a través de listados de departamentos de una manera fácil de usar, permitiéndoles marcar y desmarcar sus departamentos favoritos, la información es manejada en localStorage",
+    link: "#",
+    github: "https://github.com/David-kruger/proyecto-js",
+    image: "/projects/projectjs.webp",
+    tags: [TAGS.HTML, TAGS.TAILWIND, TAGS.JS],
+  },
+];
+---
+
+{
+  PROJECTS.map(({ title, description, image, tags, link, github }) => (
+    <article class="mt-16">
+      <h3 class="text-2xl font-semibold mb-2">{title}</h3>
+      <p class="text-lg mb-4 text-pretty"> {description} </p>
+      <ul class="flex gap-x-2 flex-row mb-2">
+        {tags.map((tag) => (
+          <li>
+            <span
+              class={`flex flex-row gap-x-2 rounded-full text-xs py-1 px-2 ${tag.class}`}
+            >
+              <tag.icon class="size-4" />
+              {tag.name}
+            </span>
+          </li>
+        ))}
+        {github && (
+          <a
+            target="_blank"
+            href={github}
+            role="link"
+            class="px-2 inline-flex bg-gray-100 text-gray-800 border-gray-300 text-base transition dark:text-white dark:bg-gray-800 border dark:border-gray-600 focus-visible:ring-yellow-500/80 text-md hover:bg-gray-800 hover:border-gray-900 group max-w-fit rounded-xl hover:text-white focus:outline-none focus-visible:outline-none focus-visible:ring focus-visible:ring-white focus-visible:ring-offset-2 active:bg-black"
+          >
+            Github
+          </a>
+        )}
+      </ul>
+        <img
+          class="w-3/4 rounded shadow-2xl shadow-white/10"
+          src={image}
+          alt={`captura de proyecto`}
+        />
+    </article>
+  ))
+}
